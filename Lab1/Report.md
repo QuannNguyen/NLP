@@ -10,10 +10,12 @@
 
 # Cách chạy code và log kết quả
 - Clone repo về:
-    '''bash
-    git clone https://github.com/QuannNguyen/NLP.git
-    cd NLP/Lab1
-    python main.py
+
+```bash
+git clone https://github.com/QuannNguyen/NLP.git
+cd NLP/Lab1
+python main.py
+```
 
 - Chạy file main.py sẽ ra log kết quả.
 - log kết quả sẽ gồm
@@ -36,12 +38,12 @@
 ## Trên dữ liệu thực 
     Đoạn văn bản gốc: "Al - Zaman : American forces killed Shaikh Abdullah al - Ani , the preacher at the mosque ..."
     Kết quả tokenization:
-    SimpleTokenizer và RegexTokenizer đều cho output giống hệt nhau.
+        + SimpleTokenizer và RegexTokenizer đều cho output giống hệt nhau.
     Ví dụ: "Al", "-", "Zaman", ":", "Ani", ",", "the", …
     Số lượng token:
         + SimpleTokenizer: 102
         + RegexTokenizer: 102
 # Khó khăn và cách giải quyết
-    Đường dẫn dataset: nếu hardcode theo máy cá nhân thì người khác không chạy được. Có thể giải quyết bằng cách nén thành .tar.gz và code tự động giải nén.
+    - Đường dẫn dataset: nếu hardcode theo máy cá nhân thì người khác không chạy được. Có thể giải quyết bằng cách nén thành .tar.gz và code tự động giải nén.
 # Nguồn tham khảo
-    Documents của python và các thư viện.
+    - Documents của python và các thư viện.
