@@ -1,4 +1,5 @@
 import os
+import tarfile
 import pandas as pd
 from simple_tokenizer import SimpleTokenizer
 from regex_tokenizer import RegexTokenizer
@@ -35,8 +36,15 @@ def task1_2():
 def task3():
     # Lấy thư mục hiện tại của file main.py
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    dataset_path = os.path.join(BASE_DIR, "UD_English-EWT", "UD_English-EWT", "en_ewt-ud-train.conllu")
-    print(dataset_path)
+
+    tar_path = os.path.join(BASE_DIR, "datasets", "UD_English-EWT.tar.gz")
+    extract_dir = os.path.join(BASE_DIR, "UD_English-EWT")
+    if not os.path.exists(extract_dir):
+        with tarfile.open(tar_path, "r:gz") as tar:  # note the r:gz
+            tar.extractall(path=extract_dir)
+
+    # Folder to extract dataset
+    dataset_path = os.path.join(extract_dir, "UD_English-EWT", "en_ewt-ud-train.conllu")
     raw_text = load_raw_text_data(dataset_path)
     sample_text = raw_text[:500]
 
@@ -54,6 +62,12 @@ def task3():
     regex_tokens = regex_tokenizer.tokenize(sample_text)
     print(f"RegexTokenizer Output (first 20 tokens): {regex_tokens[:20]}")
 
+    print(f"SimpleTokenizer token count: {len(simple_tokens)}")
+    print(f"RegexTokenizer token count: {len(regex_tokens)}")
+    print("\nSide-by-side comparison (first 20 tokens):")
+    for i, (s, r) in enumerate(zip(simple_tokens[:20], regex_tokens[:20]), 1):
+        print(f"{i:2d}. Simple: {s:15} | Regex: {r}")
+        
 if __name__ == "__main__":
     task1_2()
     task3()

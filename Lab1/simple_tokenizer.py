@@ -7,7 +7,11 @@ class SimpleTokenizer(Tokenizer):
         result = []
         temp = ''
         for char in text:
-            if char in string.punctuation:
+            if char.isspace():  # gặp khoảng trắng
+                if temp:
+                    result.append(temp)
+                    temp = ''
+            elif char in string.punctuation:
                 if temp:
                     result.append(temp)
                     temp = ''
@@ -17,7 +21,7 @@ class SimpleTokenizer(Tokenizer):
         if temp:
             result.append(temp)
         return result
-        
+
 
 
 
