@@ -14,7 +14,7 @@
     git clone https://github.com/QuannNguyen/NLP.git
     cd NLP/Lab1
     python main.py
-    '''
+
 - Chạy file main.py sẽ ra log kết quả.
 - log kết quả sẽ gồm
     + Output của SimpleTokenizer và RegexTokenizer trên câu mẫu có sẵn.
