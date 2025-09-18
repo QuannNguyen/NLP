@@ -6,7 +6,6 @@
 - Code trong main.py:
     + task1_2(): chạy tokenizer trên 3 câu mẫu.
     + task3(): tự động giải nén UD_English-EWT.tar.gz, đọc dữ liệu, tokenize và so sánh.
-    + Chạy python main.py để xem output.
 
 # Cách chạy code và log kết quả
 - Clone repo về:

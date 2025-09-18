@@ -34,10 +34,10 @@ def task1_2():
     print(RegexTokenizer().tokenize(text_3))
 
 def task3():
-    # Lấy thư mục hiện tại của file main.py
+    
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    tar_path = os.path.join(BASE_DIR, "datasets", "UD_English-EWT.tar.gz")
+    tar_path = os.path.join(BASE_DIR,  "..","datasets", "UD_English-EWT.tar.gz")
     extract_dir = os.path.join(BASE_DIR, "UD_English-EWT")
     if not os.path.exists(extract_dir):
         with tarfile.open(tar_path, "r:gz") as tar:  # note the r:gz
