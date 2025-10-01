@@ -3,7 +3,7 @@
 - Create spark_labs/src/main/scala/com/harito/spark directory
 - Put build.sbt into spark_labs folder
 - Put Lab17_NLPPipeline.scala into spark folder
-- Create a data folder and put the dataset (https://drive.google.com/file/d/1iZ-F2S57fq0q5GvCf8Btolp2ysZDK-U_/view?usp=sharing) in
+- Create a folder name "data" and put the dataset (https://drive.google.com/file/d/1iZ-F2S57fq0q5GvCf8Btolp2ysZDK-U_/view?usp=sharing) in it
 - Open terminal and run command "sbt run"
 - The output should have a file in log/ directory and results/ directory
 
