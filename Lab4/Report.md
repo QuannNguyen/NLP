@@ -21,13 +21,6 @@
 - Created `test/lab5_test.py` using a small toy dataset to verify model behavior.  
 - Created `test/lab5_hf_sentiment.py` to train and evaluate on the real Hugging Face dataset.  
 
-### Step 5 — Model Improvement (Task 4)
-- Implemented an **improvement experiment** using one of the following:
-  -  **Naive Bayes (MultinomialNB)** — better suited for sparse text data.  
-  - or  
-  -  **Advanced text preprocessing** (lemmatization and stopword removal).  
-- Created a new test file: `test/lab5_improvement_test.py`.
-
 ---
 
 ## Code Execution Guide
