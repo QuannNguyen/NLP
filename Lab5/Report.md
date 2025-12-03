@@ -1,46 +1,49 @@
-# Báo cáo Lab 5: Aspect-Based Sentiment Analysis (ABSA)
+# Lab 5 Report: Aspect-Based Sentiment Analysis (ABSA)
 
-## Mục tiêu
-Xây dựng hệ thống trích xuất khía cạnh (aspect) và phân tích cảm xúc (sentiment) chi tiết từ đánh giá nhà hàng bằng phương pháp rule-based kết hợp VADER.
+## Objective  
+Implement a simple Aspect-Based Sentiment Analysis (ABSA) system for restaurant reviews using rule-based aspect extraction and VADER sentiment analysis.
 
-## Phương pháp thực hiện
+## Methodology  
 
-1. **Tiền xử lý**
-   - Sử dụng spaCy để tokenize và POS tagging.
-   - Trích xuất noun phrases làm candidate aspects.
+1. **Preprocessing**  
+   - Tokenization & POS tagging with spaCy  
+   - Extract noun phrases as aspect candidates  
 
-2. **Trích xuất khía cạnh (Aspect Extraction)**
-   - Lọc các noun/noun phrase thuộc danh sách từ khóa domain: `food`, `service`, `price`, `ambiance`, `staff`, `place`, v.v.
-   - Loại bỏ stopword và trùng lặp.
+2. **Aspect Extraction**  
+   - Keep nouns/noun phrases that belong to a predefined domain list:  
+     `food`, `service`, `price`, `ambiance`, `staff`, `place`, `atmosphere`, etc.  
+   - Remove duplicates and stopwords  
 
-3. **Phân tích cảm xúc (Sentiment Analysis)**
-   - Dùng VADER Sentiment để tính compound score cho toàn câu hoặc đoạn chứa aspect.
-   - Quy tắc:
-     - ≥ 0.05 → positive  
-     - ≤ -0.05 → negative  
-     - còn lại → neutral
+3. **Sentiment Analysis**  
+   - Apply VADER SentimentIntensityAnalyzer on the review sentence (or aspect context)  
+   - Classification rule:  
+     - compound ≥ 0.05 → **positive**  
+     - compound ≤ -0.05 → **negative**  
+     - otherwise → **neutral**
 
-## Kết quả chạy thử (ví dụ)
+## Sample Output  
 
-| Đánh giá                                    | Aspect                | Sentiment  |
-|---------------------------------------------|------------------------|------------|
-| The food was amazing but the service was slow. | food<br>service       | positive<br>negative |
-| Great ambiance and reasonable prices.       | ambiance<br>prices     | positive<br>positive |
-| The place is clean and staff are friendly.  | place<br>staff         | positive<br>positive |
+| Review                                          | Aspects               | Sentiment               |
+|-------------------------------------------------|-----------------------|-------------------------|
+| The food was amazing but the service was slow.  | food<br>service       | positive<br>negative    |
+| Great ambiance and reasonable prices.           | ambiance<br>prices    | positive<br>positive    |
+| The place is clean and staff are friendly.      | place<br>staff        | positive<br>positive    |
 
-## Đánh giá (trên 20 câu test thủ công)
+## Evaluation (on 20 manually labeled reviews)
 
-| Nhiệm vụ               | Precision | Recall | F1     | Accuracy |
-|--------------------------|-----------|--------|--------|----------|
-| Aspect Extraction        | 0.88      | 0.80   | 0.84   | -        |
-| Sentiment Classification | -         | -      | -      | 0.90     |
+| Task                     | Precision | Recall | F1    | Accuracy |
+|--------------------------|-----------|--------|-------|----------|
+| Aspect Extraction        | 0.88      | 0.80   | 0.84  | -        |
+| Sentiment Classification | -         | -      | -     | 0.90     |
 
-## Nhận xét & Hướng cải thiện
-- Ưu điểm: đơn giản, không cần train, dễ tùy chỉnh theo domain.
-- Hạn chế: chưa xử lý tốt phủ định, aspect ngầm, câu phức.
-- Cải thiện: dùng BERT-based ABSA (ví dụ: `yangheng/deberta-v3-base-absa`), dependency parsing hoặc fine-tune trên SemEval dataset.
+## Discussion & Possible Improvements  
+**Strengths**: lightweight, no training needed, highly interpretable, easy to customize per domain.  
+**Weaknesses**: struggles with negation, implicit aspects, and complex sentences.  
+**Future work**:  
+- Use BERT-based ABSA models (e.g., `yangheng/deberta-v3-base-absa`)  
+- Add dependency parsing for better aspect-sentiment pairing  
+- Fine-tune on SemEval-2014/2015/2016 ABSA datasets  
 
-## Kết luận
-Đã hoàn thiện pipeline ABSA cơ bản với kết quả khả quan trên dữ liệu nhỏ. Đây là nền tảng tốt để nâng cấp lên các mô hình deep learning hiện đại.
-
+## Conclusion  
+A working end-to-end ABSA pipeline has been successfully implemented with satisfactory performance on small-scale data, providing a solid baseline for further deep learning enhancements.
 
