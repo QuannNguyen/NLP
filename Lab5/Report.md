@@ -43,4 +43,4 @@ Xây dựng hệ thống trích xuất khía cạnh (aspect) và phân tích c�
 ## Kết luận
 Đã hoàn thiện pipeline ABSA cơ bản với kết quả khả quan trên dữ liệu nhỏ. Đây là nền tảng tốt để nâng cấp lên các mô hình deep learning hiện đại.
 
-**Hoàn thành ngày 03/12/2025**
+
